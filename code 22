@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100],cipher[100],plain[100];
+    char iv=10;
+
+    printf("Enter Plaintext: ");
+    scanf("%s",text);
+
+    printf("\nEncryption:\n");
+
+    for(int i=0;text[i];i++)
+    {
+        cipher[i]=text[i]^iv;
+        iv=cipher[i];
+    }
+    cipher[strlen(text)]='\0';
+
+    printf("Ciphertext: %s\n",cipher);
+
+    iv=10;
+
+    printf("Decryption:\n");
+
+    for(int i=0;cipher[i];i++)
+    {
+        plain[i]=cipher[i]^iv;
+        iv=cipher[i];
+    }
+
+    plain[strlen(cipher)]='\0';
+
+    printf("Recovered Text: %s",plain);
+
+    return 0;
+}
