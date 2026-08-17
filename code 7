@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    char text[1000];
+    int freq[256]={0};
+
+    printf("Enter Cipher Text:\n");
+    scanf("%s",text);
+
+    for(int i=0;text[i]!='\0';i++)
+        freq[(unsigned char)text[i]]++;
+
+    printf("\nCharacter Frequency:\n");
+
+    for(int i=0;i<256;i++)
+    {
+        if(freq[i]>0)
+            printf("%c : %d\n",i,freq[i]);
+    }
+
+    return 0;
+}
