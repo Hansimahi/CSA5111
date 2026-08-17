@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("ECB Mode Error Analysis\n\n");
+
+    printf("If ciphertext block C1 is corrupted:\n");
+    printf("Only plaintext block P1 is affected.\n\n");
+
+    printf("CBC Mode Error Analysis\n");
+    printf("P1 becomes completely incorrect.\n");
+    printf("P2 has one-bit error.\n");
+    printf("Blocks after P2 are not affected.\n");
+    return 0;
+}
