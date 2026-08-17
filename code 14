@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char text[]="SENDMOREMONEY";
+    int key[]={9,0,1,7,23,15,21,14,11,11,2,8,9};
+
+    printf("Cipher Text : ");
+
+    for(int i=0;text[i];i++)
+    {
+        int p=text[i]-'A';
+        int c=(p+key[i])%26;
+        printf("%c",c+'A');
+    }
+
+    return 0;
+}
+Decryption
+#include <stdio.h>
+
+int main()
+{
+    char cipher[100];
+    int key[100],n;
+
+    printf("Enter Cipher Text : ");
+    scanf("%s",cipher);
+
+    printf("Enter Length : ");
+    scanf("%d",&n);
+
+    printf("Enter Key Stream:\n");
+
+    for(int i=0;i<n;i++)
+        scanf("%d",&key[i]);
+
+    printf("Plain Text : ");
+
+    for(int i=0;i<n;i++)
+    {
+        int p=((cipher[i]-'A')-key[i]+26)%26;
+        printf("%c",p+'A');
+    }
+
+    return 0;
+}
