@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int gcd(int a,int b)
+{
+    while(b!=0)
+    {
+        int t=a%b;
+        a=b;
+        b=t;
+    }
+    return a;
+}
+
+int main()
+{
+    int n=3599;
+    int plaintext;
+
+    printf("Enter a plaintext block: ");
+    scanf("%d",&plaintext);
+
+    int factor=gcd(plaintext,n);
+
+    if(factor>1 && factor<n)
+    {
+        printf("\nCommon factor found: %d\n",factor);
+        printf("Other factor: %d\n",n/factor);
+        printf("RSA modulus can be factored.\n");
+    }
+    else
+    {
+        printf("\nNo useful common factor found.\n");
+    }
+
+    return 0;
+}
