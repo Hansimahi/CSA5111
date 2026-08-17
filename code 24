@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int gcd(int a,int b)
+{
+    if(b==0)
+        return a;
+    return gcd(b,a%b);
+}
+
+int main()
+{
+    int p=59;
+    int q=61;
+    int n=p*q;
+    int phi=(p-1)*(q-1);
+
+    int e=31;
+    int d=1;
+
+    while((d*e)%phi!=1)
+        d++;
+
+    printf("p = %d\n",p);
+    printf("q = %d\n",q);
+    printf("n = %d\n",n);
+    printf("phi = %d\n",phi);
+    printf("Public Key = (%d,%d)\n",e,n);
+    printf("Private Key = (%d,%d)\n",d,n);
+
+    return 0;
+}
