@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char text[100],cipher[100],plain[100];
+    int counter=0;
+
+    printf("Enter Plaintext: ");
+    scanf("%s",text);
+
+    for(int i=0;text[i];i++)
+    {
+        cipher[i]=text[i]^counter;
+        counter++;
+    }
+
+    cipher[strlen(text)]='\0';
+
+    printf("\nCiphertext: %s\n",cipher);
+
+    counter=0;
+
+    for(int i=0;cipher[i];i++)
+    {
+        plain[i]=cipher[i]^counter;
+        counter++;
+    }
+
+    plain[strlen(cipher)]='\0';
+
+    printf("Recovered Plaintext: %s",plain);
+
+    return 0;
+}
