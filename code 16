@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+char english[] = "ETAOINSHRDLCUMWFGYPBVKJXQZ";
+
+int main() {
+    char cipher[500];
+    int freq[26] = {0};
+    int used[26] = {0};
+    char map[26];
+    int i, j, max;
+
+    printf("Enter Cipher Text:\n");
+    fgets(cipher, sizeof(cipher), stdin);
+
+    for(i = 0; cipher[i]; i++) {
+        if(isalpha(cipher[i]))
+            freq[toupper(cipher[i]) - 'A']++;
+    }
+
+    for(i = 0; i < 26; i++) {
+        max = -1;
+        int pos = 0;
+        for(j = 0; j < 26; j++) {
+            if(!used[j] && freq[j] > max) {
+                max = freq[j];
+                pos = j;
+            }
+        }
+        used[pos] = 1;
+        map[pos] = english[i];
+    }
+
+    printf("\nPossible Plaintext:\n");
+
+    for(i = 0; cipher[i]; i++) {
+        if(isalpha(cipher[i]))
+            printf("%c", map[toupper(cipher[i])-'A']);
+        else
+            printf("%c", cipher[i]);
+    }
+
+    return 0;
+}
