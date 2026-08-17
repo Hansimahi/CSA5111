@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int P[2][2],C[2][2];
+
+    printf("Enter Plaintext Matrix (2x2):\n");
+
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            scanf("%d",&P[i][j]);
+
+    printf("Enter Ciphertext Matrix (2x2):\n");
+
+    for(int i=0;i<2;i++)
+        for(int j=0;j<2;j++)
+            scanf("%d",&C[i][j]);
+
+    printf("\nKnown Plaintext Attack Demonstration\n");
+    printf("Key = Cipher Matrix × Inverse(Plain Matrix)\n");
+    printf("Compute multiplication modulo 26.\n");
+
+    return 0;
+}
